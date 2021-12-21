@@ -1,7 +1,9 @@
 let arr = [8, 11, 13, 3, 7]
 let min = arr[0]
 for(let i=0; i<arr.length; i++) {
-  if (arr[i] < min) min = arr[i]
+  if (arr[i] < min) {
+    min = arr[i]
+  }
 }
 console.log('min:', min)
 
@@ -21,4 +23,5 @@ for (i from 0 to n-1) do
   if (arr[i] < min) do
     min = arr[i]
   end if
-end for */
+end for
+print min */

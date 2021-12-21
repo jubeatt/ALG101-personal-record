@@ -14,4 +14,4 @@ for (i from 0 to n-1) do
     max = arr[i]
   end if
 end for
-console.log(max) */
+print max */
