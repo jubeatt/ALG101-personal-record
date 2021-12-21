@@ -7,6 +7,7 @@ console.log('min:', min)
 
 // 虛擬碼練習（中文）
 /* let min = 第一張牌
+let n = 撲克牌的張數
 for (i from 1 to n) do
   翻開第 i 張牌
   if (第 i 張牌比 min 小) do
