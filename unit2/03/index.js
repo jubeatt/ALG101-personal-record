@@ -12,7 +12,7 @@ for(let i=0; i<arr.length; i++) {
 console.log(max, max2)
 
 
-
+/* 
 
 1. 設 arr 為 [5, 8, 6]
 2. 設 max 為 -Infinity
@@ -36,4 +36,4 @@ console.log(max, max2)
 19. i 現在是 3，不符合條件，結束迴圈
 20. 印出 max, max2 => 8, 6
 
-
+ */
