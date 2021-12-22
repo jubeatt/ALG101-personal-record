@@ -1,6 +1,6 @@
 # 印出因數
 
-跟印出奇數的結構很像。
+跟 [印出奇數](https://github.com/jubeatt/ALG101-personal-record/tree/master/unit1/01) 的結構很像。
 
 這題的解法是：
 
