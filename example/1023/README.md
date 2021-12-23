@@ -1,4 +1,4 @@
-# NM 印出聖誕樹
+# 印出聖誕樹
 
 [題目連結](https://oj.lidemy.com/problem/1023)
 
