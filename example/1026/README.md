@@ -2,7 +2,7 @@
 
 [題目連結](https://oj.lidemy.com/problem/1026)
 
-這題的解法可以參考這篇 [文章](https://jubeatt.github.io/2021/12/27/is-sequence/)
+這題的解法可以參考這篇 [文章](https://jubeatt.github.io/2021/12/26/is-sequence/)
 
 白話文解釋：如題
 
