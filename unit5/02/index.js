@@ -23,7 +23,7 @@ function isValid(str) {
 }
 // 字母對應表
 function codeTable(key) {
-  const map = {
+  const mapping = {
     A: '10', B: '11', C: '12',
     D: '13', E: '14', F: '15',
     G: '16', H: '17', I: '34',
@@ -34,5 +34,5 @@ function codeTable(key) {
     V: '29', W: '32', X: '30',
     Y: '31', Z: '33'
   }
-  return map[key]
+  return mapping[key]
 }

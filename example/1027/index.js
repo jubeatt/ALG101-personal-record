@@ -1,8 +1,13 @@
 // 解法一，內建函式
 function solve(lines) {
+  
   console.log(isValid(lines))
 }
 function isValid(array) {
+  // 輸入規則：開頭 4 個數字，結尾 4 個數字，中間以 - 做分隔
+  const isValidInput = /^\d{4}-\d{4}-\d{4}-\d{4}$/.test(array[0])
+  // 判斷輸入是否合法
+  if( !(isValidInput) ) return false
   // expected => [5,4,1,2,3, ...]
   const numbers = array[0]
                     .split('')
