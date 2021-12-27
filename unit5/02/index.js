@@ -8,7 +8,6 @@ function isValid(str) {
   const IDString = codeTable(str[0]) + str.substring(1)
   // 數字
   const IDNumbers = IDString.split('').map(value => Number(value))
-  console.log('IDNumbers', IDNumbers)
   // 公式表
   const table = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
   // 總和
@@ -18,7 +17,6 @@ function isValid(str) {
     sum += IDNumbers[i] * table[i]
   }
   // 回傳結果
-  console.log('sum:', sum)
   return sum%10 === 0
 }
 // 字母對應表
