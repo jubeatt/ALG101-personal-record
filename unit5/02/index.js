@@ -34,3 +34,9 @@ function codeTable(key) {
   }
   return mapping[key]
 }
+isValid('A123456789')  // true
+isValid('E292733873')  // true
+isValid('AAA2345678')  // false
+isValid('E1234567890010')  // false
+isValid('A12S4F7899')  // false
+isValid('G987654321')  // false
