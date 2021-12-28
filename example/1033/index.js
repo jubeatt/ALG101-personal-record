@@ -3,7 +3,8 @@ function solve(lines) {
   // 有幾組座標
   const n = lines[0] * 1
   let min = Infinity
-  let result = []
+  // 儲存最短距離的兩組座標
+  let result = null
   // 計算最近點對
   // i from 1 to 4
   for(let i=1; i<=n; i++) {
@@ -23,18 +24,14 @@ function solve(lines) {
       if(distance < min) {
         // 更新目前最短距離
         min = distance
-        // 清空結果陣列
-        // 沒清空的話，每次找到比目前小的就會推進去
-        // 但是我們只想留下「最小」或「一樣小」的座標
-        result = []
-        // 填入目前最小的座標
-        result.push(x1, y1, x2, y2)
+        result = [x1, y1, x2, y2]
       } 
     }
   }
+
+  // 輸出訊息
   const position1 = result[0] + ' ' + result[1] 
   const position2 = result[2] + ' ' + result[3] 
-
 
   // position1[X] < position2[X]
   if(result[0] < result[2]) {
@@ -50,7 +47,7 @@ function solve(lines) {
   }
   // position1[X] === position2[X]
   if(result[0] === result[2]) {
-    // position1[Y] < position2[Y]
+    // position1[Y] <= position2[Y]
     if(result[1] <= result[3]) {
       // 先輸出 position1
       console.log(position1)

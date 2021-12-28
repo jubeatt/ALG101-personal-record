@@ -2,8 +2,6 @@
 
 [題目連結](https://oj.lidemy.com/problem/1033)
 
-這題的解法可以參考這篇 [文章](https://jubeatt.github.io/2021/12/28/calculate-distance/)
-
 白話文解釋：計算兩組座標的距離，並找出最短距離的那組
 
 輸入範圍：
