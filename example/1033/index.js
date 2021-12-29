@@ -66,3 +66,85 @@ function calculateDistance(x1, y1, x2, y2) {
   // 這裡不要 toFixed()，不然會出錯
   return Math.sqrt(x + y)
 }
+
+
+// 檢討後的解法
+function solve(lines) {
+  // 建立座標資料
+  const coords = []
+  for(let i=1; i<lines.length; i++) {
+    coords.push({
+      // i=1 => '2 2' => ['2', '2']
+      // i=2 => '1 1' => ['1', '1']
+      x: lines[i].split(' ')[0] * 1,
+      y: lines[i].split(' ')[1] * 1
+    })
+  }
+  // 預設最小值
+  let min = Infinity
+  // 儲存最短距離的座標
+  let ans = null
+  // 找出最短距離
+  for(let i=0; i<coords.length; i++) {
+    // i from 0 to 3  < length
+    // i from 0 to 2  < length-1
+    // j from (i+1) to 3 (length=4)
+    // i=0 => j=1 2 3
+    // i=1 => j=2 3
+    // i=2 => j=3
+    // length-1 到此結束
+    // i=3 => j=4 不符合條件，4 < 4 is false，不進入 j 的迴圈
+    const targetX = coords[i].x 
+    const targetY = coords[i].y
+    for(let j=i+1; j<coords.length; j++) {
+      const compareX = coords[j].x
+      const compareY = coords[j].y
+      const dis = calculateDistance(targetX, targetY, compareX, compareY)
+      if(dis < min) {
+        // 更新最小值
+        min = dis
+        // 更新座標資料
+        ans = {
+          x1: targetX,
+          y1: targetY,
+          x2: compareX,
+          y2: compareY
+        }
+      }
+    }
+  }
+  // 輸出訊息
+  const coord1 = ans.x1 + ' ' + ans.y1
+  const coord2 = ans.x2 + ' ' + ans.y2
+
+  // coord1[X] < coord2[X]
+  if(ans.x1 < ans.x2) {
+    // 先輸出 coord1
+    console.log(coord1)
+    console.log(coord2)
+  }
+  // coord1[X] > coord2[X] 
+  if(ans.x1 > ans.x2) {
+    // 先輸出 coord2
+    console.log(coord2)
+    console.log(coord1)
+  }
+  // coord1[X] === coord2[X]
+  if(ans.x1 === ans.x2) {
+    // coord1[Y] <= coord2[Y]
+    if(ans.y1 <= ans.y2) {
+      // 先輸出 coord1
+      console.log(coord1)
+      console.log(coord2)
+    } else {
+      // 先輸出 coord2
+      console.log(coord2)
+      console.log(coord1)
+    }
+  }
+}
+function calculateDistance(x1, y1, x2, y2) {
+  const x = Math.pow(x1-x2, 2)
+  const y = Math.pow(y1-y2, 2)
+  return Math.sqrt(x+y)
+}

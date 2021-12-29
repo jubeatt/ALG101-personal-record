@@ -1,0 +1,1 @@
+# 實作 String.repeat
