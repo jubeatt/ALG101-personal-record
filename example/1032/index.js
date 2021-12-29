@@ -67,3 +67,32 @@ function calculateDistance(x1, y1, x2, y2) {
   const y = (y1-y2) ** 2
   return Math.sqrt(x + y).toFixed(2)
 }
+
+// 學到更簡潔的解法
+function solve(lines) {
+  // 轉成數字
+  const temp = lines.map(value => value * 1)
+  // 全部有幾組
+  const total = temp[0]
+  // 計算每一組的距離
+  for(let i=0; i<total; i++) {
+    // i=0 => start=1
+    // i=1 => start=5
+    // i=2 => start=9
+    // ... 
+    let start = i*4+1
+    // i=0 => slice(1, 5) [1, 1, 2, 2]
+    // i=1 => slice(5, 9) [3, 3, 4, 4]
+    // ...
+    // 搭配解構賦值取出每一點
+    const [x1, y1, x2, y2] = temp.slice(start, start+4)
+    const distance = calculateDistance(x1, y1, x2, y2)
+    console.log(distance)
+  }
+}
+
+function calculateDistance(x1, y1, x2, y2) {
+  const x = Math.pow(x1-x2, 2)
+  const y = Math.pow(y1-y2, 2)
+  return Math.sqrt(x+y).toFixed(2)
+}

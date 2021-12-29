@@ -1,10 +1,7 @@
-function solve(lines) {
-  // 轉成一行字串
-  const str = lines.reduce((acc, elem) => acc + elem, '')
-  console.log(whowin2(str))
-}
-
 // 解法一 => 二維陣列
+function solve(lines) {
+  console.log(whowin(lines))
+}
 function whoWin1(lines) {
   // 橫排
   for(let i=0; i<3; i++) {
@@ -33,8 +30,13 @@ function whoWin1(lines) {
   return 'DRAW'
 }
 
-// 解法一 => 轉成字串
-function whowin2(str) {
+// 解法二 => 轉成字串
+function solve(lines) {
+  // 轉成一行字串
+  const str = lines.reduce((acc, elem) => acc + elem, '')
+  console.log(whowin(str))
+}
+function whowin(str) {
   // 橫排
   for(let i=0; i<3; i++) {
     let n = i*3
