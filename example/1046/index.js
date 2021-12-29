@@ -1,40 +1,11 @@
 function solve(lines) {
   // 轉成一行字串
   const str = lines.reduce((acc, elem) => acc + elem, '')
-  console.log(whowin(str))
+  console.log(whowin2(str))
 }
 
-function whowin(str) {
-  const O = 'O'
-  const X = 'X'
-  if( str[0]===O && str[1]===O && str[2]===O ) return O
-  if( str[3]===O && str[4]===O && str[5]===O ) return O
-  if( str[6]===O && str[7]===O && str[8]===O ) return O
-
-  if( str[0]===O && str[3]===O && str[6]===O ) return O
-  if( str[1]===O && str[4]===O && str[7]===O ) return O
-  if( str[2]===O && str[5]===O && str[8]===O ) return O
-
-  if( str[0]===X && str[1]===X && str[2]===X ) return X
-  if( str[3]===X && str[4]===X && str[5]===X ) return X
-  if( str[6]===X && str[7]===X && str[8]===X ) return X
-
-  
-  if( str[0]===X && str[3]===X && str[6]===X ) return X
-  if( str[1]===X && str[4]===X && str[7]===X ) return X
-  if( str[2]===X && str[5]===X && str[8]===X ) return X
-
-  if( str[0]===O && str[4]===O && str[8]===O ) return O
-  if( str[2]===O && str[4]===O && str[6]===O ) return O
-
-  if( str[0]===X && str[4]===X && str[8]===X ) return X
-  if( str[2]===X && str[4]===X && str[6]===X ) return X
-
-  // 以上都沒有就是平手
-  return 'DRAW'
-}
-
-function whoWin(lines) {
+// 解法一 => 二維陣列
+function whoWin1(lines) {
   // 橫排
   for(let i=0; i<3; i++) {
     // 第 i 排的第 0 個字元 = 第 i 排的第 1 個字元
@@ -62,31 +33,28 @@ function whoWin(lines) {
   return 'DRAW'
 }
 
-/*  窮舉所有贏的可能
-第一行 OOO
-第二行 OOO
-第三行 OOO
+// 解法一 => 轉成字串
+function whowin2(str) {
+  // 橫排
+  for(let i=0; i<3; i++) {
+    let n = i*3
+    if(str[n] === str[n+1] && str[n+1] === str[n+2]) {
+      return str[n]
+    }
+  }
+  // 直排
+  for(let i=0; i<3; i++) {
+    if(str[i] === str[i+3] && str[i+3] === str[i+6]) {
+      return str[i]
+    }
+  }
+  // 斜排
+  if(str[0] === str[4] && str[4] === str[8]) {
+    return str[0]
+  }
+  if(str[2] === str[4] && str[4] === str[6]) {
+    return str[2]
+  }
+  return 'DRAW'
+}
 
-第一列
-O
-O
-O
-第二列
-  O
-  O
-  O
-第三列
-    O
-    O
-    O
-
-斜角一
-O
-  O
-    O
-斜角二
-    O
-  O
-O 
-
-*/
