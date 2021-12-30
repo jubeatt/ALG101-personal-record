@@ -18,9 +18,7 @@ function filter(arr, callback) {
   for(let i=0; i<arr.length; i++) {
     // 把回傳 true 的元素加入到結果陣列
     if(callback(arr[i])) {
-      result[k] = arr[i]
-      // 更新索引值
-      k++
+      result[k++] = arr[i]
     }
   }
   // 回傳結果陣列
