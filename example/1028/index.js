@@ -50,3 +50,32 @@ function sum(n) {
   }
   return result
 }
+
+// 解法三，遞迴
+function solve(lines) {
+  // 輸入規則：4 個數字起頭 + 空格 + 1或2個數字 + 空格 + 1或2個數字結尾 
+  const isValidInput = /^\d{4}\s\d{1,2}\s\d{1,2}$/.test(lines[0])
+  // 判斷輸入是否合法
+  if( !(isValidInput) ) return false
+  // ['1991 11 7'] => 1991117 => 轉成數字
+  let n = lines[0].split(' ').reduce((acc, elem) => acc + elem, '') * 1
+  console.log(soulNum(n))
+}
+function soulNum(n) {
+  // 儲存位數加總後的值
+  let sum = 0
+  // 做位數加總，直到 n 為 0
+  while(n !== 0) {
+    // 拿最後一位數相加
+    sum += n%10
+    // 去掉最後一位數
+    n = Math.floor(n/10)
+  }
+  // 如果總和不是一位數，遞迴這個 function
+  if(Math.floor(sum/10) !== 0) {
+    // 再次呼叫 soulNum
+    sum = soulNum(sum)
+  }
+  // 回傳結果
+  return sum  
+}
