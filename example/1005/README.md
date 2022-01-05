@@ -1,4 +1,4 @@
-# 聯誼順序比大小
+# 聯誼話題相親數
 
 [題目連結](https://oj.lidemy.com/problem/1005)
 
