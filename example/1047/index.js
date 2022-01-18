@@ -1,27 +1,3 @@
-// 引入library
-var readline = require('readline');
-
-var rl = readline.createInterface({
-  input: process.stdin
-});
-
-// 儲存每一行的資料
-var lines = []
-
-// 輸入資料
-rl.on('line', function (line) {
-  // push資料
-  lines.push(line)
-});
-
-
-
-// 輸入結束
-rl.on('close', function() {
-  // 資料傳入solve
-  solve(lines)
-})
-
 function solve(lines) {
   // 切割出數列
   const numbers = lines.slice(1, Number(lines[0].split(' ')[0]) + 1).map(Number)
